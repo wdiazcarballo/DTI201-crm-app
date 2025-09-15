@@ -1,10 +1,11 @@
 {
+  "type": "module",
   "name": "crm",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRM Application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node"
+    "start": "node index.js"
   },
   "author": "Emmanuel Henri",
   "license": "ISC",

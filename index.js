@@ -1,8 +1,12 @@
 import express from 'express';
-import routes from './src/routes/crmRoutes';
+import routes from './src/routes/crmRoutes.js';  // Updated path
 
 const app = express();
 const PORT = 3000;
+
+// Add middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 routes(app);
 
