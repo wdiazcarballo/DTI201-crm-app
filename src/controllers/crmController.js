@@ -1,4 +1,7 @@
-const Crm = require('../models/crmModel');
+import {Contact} from '../models/crmModel.js';
+import mongoose from 'mongoose';
+
+const Crm = mongoose.model('Contact', Contact.schema);
 
 // Get all CRM records
 exports.getAllCrms = async (req, res) => {

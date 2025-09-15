@@ -1,34 +1,22 @@
+import { 
+    getAllCrms, 
+    getCrmById, 
+    createCrm, 
+    updateCrm, 
+    deleteCrm 
+} from '../controllers/crmController.js';
+
 const routes = (app) => {
     // Collection routes
     app.route('/contact')
-        .get((req, res) => {
-            res.send({
-                message: 'GET request successful - retrieving all contacts'
-            });
-        })
-        .post((req, res) => {
-            res.send({
-                message: 'POST request successful - new contact created'
-            });
-        });
+        .get(getAllCrms)
+        .post(createCrm);
 
     // Single item routes 
-    app.route('/contact/:contactId')
-        .get((req, res) => {
-            res.send({
-                message: `GET request successful - retrieving contact ${req.params.contactId}`
-            });
-        })
-        .put((req, res) => {
-            res.send({
-                message: `PUT request successful - updating contact ${req.params.contactId}`
-            });
-        })
-        .delete((req, res) => {
-            res.send({
-                message: `DELETE request successful - removing contact ${req.params.contactId}`
-            });
-        });
+    app.route('/contact/:id')
+        .get(getCrmById)
+        .put(updateCrm)
+        .delete(deleteCrm);
 }
 
 export default routes;
